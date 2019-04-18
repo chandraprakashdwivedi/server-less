@@ -22,14 +22,14 @@ pipeline {
                 sh 'python create_s3_bucket.py '
                 }
            }*/
-        stage('Ansible Deployment') {
+       /* stage('Ansible Deployment') {
             steps {
                 echo 'Deployment using AZURE ARM'
                 //sh ' ansible-playbook site.yml '  //to create ecs web hosting
               //sh ' ansible-playbook site-down.yml ' //to delete all ecs web hosting
                sh 'ansible-playbook network.yml '
             }
-        }
+        }*/
         /*stage('s3 Bucket creation using Terraform') {
             steps {
                 echo 'S3 Bucket ${params.BUCKET} creation using terraform'
@@ -40,6 +40,12 @@ pipeline {
                  sh ' terraform apply -auto-approve -var-file="terraform/custom.tfvars" terraform '
             }
         }*/
+          stage('serverless Deployment') {
+            steps {
+                echo 'Deployment using Serverless'
+                 sh 'serverless deploy -v'
+            }
+        }
     }
   
     /*  post {
