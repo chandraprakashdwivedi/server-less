@@ -18,7 +18,10 @@ https://serverless.com/framework/docs/providers/
 
 Create a Service:
 
-#serverless create --template aws-nodejs --path my-service
+#serverless create --template aws-nodejs --path <my-service>   //For AWS
+
+#serverless create -t azure-nodejs --path <my-service>    //For Azure
+  
 #cd my-service
 
 Deploy a Service:
