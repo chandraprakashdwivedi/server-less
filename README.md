@@ -20,7 +20,7 @@ Create a Service:
 
 #serverless create --template aws-python3 --path <my-service>   //For AWS
 
-#serverless create -t azure-python3 --path <my-service>    //For Azure
+#serverless create -template azure-python3 --path <my-service>    //For Azure
   
 #cd my-service
 
