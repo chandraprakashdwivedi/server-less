@@ -93,6 +93,10 @@ or
 
 frameworkVersion: ">=1.0.0 <2.0.0"
 
+AWS - Functions: \
+If you are using AWS as a provider, all functions inside the service are AWS Lambda functions.
+
+
 
 
 
