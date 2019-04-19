@@ -47,9 +47,9 @@ Open up a separate tab in your console and stream all logs for a specific Functi
 Remove the Service: \
 Removes all Functions, Events and Resources from your AWS account.
 
-#serverless remove\
+#serverless remove \
 
-How to Install a Service:\ 
+How to Install a Service: \ 
 This is a convenience method to install a pre-made Serverless Service locally by downloading the Github repo and unzipping it. Services are listed below.
 
 #serverless install -u https://github.com/your-url-to-the-serverless-service
@@ -60,7 +60,7 @@ Some Notes: \
 
 ### Every serverless.yml translates to a single AWS CloudFormation template and a CloudFormation stack is created from that resulting CloudFormation template.
 
-handler.js:\
+handler.js: \
 The handler.js file contains your function code. The function definition in serverless.yml will point to this handler.js file and the function exported here.
 
 event.json: \
@@ -70,7 +70,7 @@ Create this file and add event data so you can invoke your function with the dat
 
 #serverless invoke -p event.json
 
-Deployment:\
+Deployment: \
 When you deploy a Service, all of the Functions, Events and Resources in your serverless.yml are translated to an AWS CloudFormation template and deployed as a single CloudFormation stack.
 
 Note: Deployment defaults to dev stage and us-east-1 region on AWS, unless you specified these elsewhere, or add them in as options:
@@ -82,10 +82,10 @@ To easily remove your Service from your AWS account, you can use the remove comm
 
 #serverless remove -v
 
-Pinning a Version:
+Pinning a Version: \ 
 To configure version pinning define a frameworkVersion property in your serverless.yaml. Whenever you run a Serverless command from the CLI it checks if your current Serverless version is matching the frameworkVersion range
 
-#cat serverless.yml\
+#cat serverless.yml \
 
 frameworkVersion: "=1.0.3" ...
 
