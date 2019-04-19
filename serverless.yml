@@ -6,7 +6,7 @@ provider:
   role: arn:aws:iam::049723741716:role/NotificationLambdaRole
 # you can overwrite defaults here
 #  stage: dev
-#  region: us-east-1
+  region: ap-south-1
 
 # you can add packaging information here
 #package:
