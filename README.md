@@ -60,20 +60,20 @@ Some Notes:
 
 ### Every serverless.yml translates to a single AWS CloudFormation template and a CloudFormation stack is created from that resulting CloudFormation template.
 
-handler.js
+handler.js:\
 The handler.js file contains your function code. The function definition in serverless.yml will point to this handler.js file and the function exported here.
 
-event.json
+event.json:\
 Note: This file is not created by default
 
 Create this file and add event data so you can invoke your function with the data via 
 
 #serverless invoke -p event.json
 
-Deployment:
+Deployment:\
 When you deploy a Service, all of the Functions, Events and Resources in your serverless.yml are translated to an AWS CloudFormation template and deployed as a single CloudFormation stack.
 
-Note Deployment defaults to dev stage and us-east-1 region on AWS, unless you specified these elsewhere, or add them in as options:
+Note: Deployment defaults to dev stage and us-east-1 region on AWS, unless you specified these elsewhere, or add them in as options:
 
 #serverless deploy --stage prod --region us-east-1
 
@@ -85,7 +85,7 @@ To easily remove your Service from your AWS account, you can use the remove comm
 Pinning a Version:
 To configure version pinning define a frameworkVersion property in your serverless.yaml. Whenever you run a Serverless command from the CLI it checks if your current Serverless version is matching the frameworkVersion range
 
-#cat serverless.yml /
+#cat serverless.yml\
 
 frameworkVersion: "=1.0.3" ...
 
