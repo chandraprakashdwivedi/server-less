@@ -24,17 +24,17 @@ Create a Service:
   
 #cd my-service
 
-Deploy a Service: \n
+Deploy a Service: \
 Use this when you have made changes to your Functions, Events or Resources in serverless.yml or you simply want to deploy all changes within your Service at the same time.
 
 #serverless deploy --stage prod --region ap-south-1
 
-Deploy the Function: \n 
+Deploy the Function: \
 Use this to quickly upload and overwrite your AWS Lambda code on AWS, allowing you to develop faster.
 
 #serverless deploy function -f hello
 
-Invoke the Function:
+Invoke the Function: \
 Invokes an AWS Lambda Function on AWS and returns logs.
 
 #serverless invoke -f hello -l
@@ -44,26 +44,26 @@ Open up a separate tab in your console and stream all logs for a specific Functi
 
 #serverless logs -f hello -t
 
-Remove the Service:
+Remove the Service: \
 Removes all Functions, Events and Resources from your AWS account.
 
 #serverless remove
 
-How to Install a Service:
+How to Install a Service: \ 
 This is a convenience method to install a pre-made Serverless Service locally by downloading the Github repo and unzipping it. Services are listed below.
 
 #serverless install -u https://github.com/your-url-to-the-serverless-service
 
 Check out the Serverless Framework Guide for more information.
 
-Some Notes:
+Some Notes: \
 
 ### Every serverless.yml translates to a single AWS CloudFormation template and a CloudFormation stack is created from that resulting CloudFormation template.
 
 handler.js:\
 The handler.js file contains your function code. The function definition in serverless.yml will point to this handler.js file and the function exported here.
 
-event.json:\
+event.json: \
 Note: This file is not created by default
 
 Create this file and add event data so you can invoke your function with the data via 
