@@ -1,0 +1,67 @@
+service: migration8 # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: python3.6
+  role: arn:aws:iam::049723741716:role/NotificationLambdaRole
+# you can overwrite defaults here
+#  stage: dev
+#  region: us-east-1
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.py
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.py
+#    - exclude-me-dir/**
+
+functions:
+  list:
+    handler: ApplicationMigration/get_all_responses.list_responses
+    events:
+      - http:
+          path: ApplicationMigration
+          method: get
+          cors: true
+  delete:
+    handler: ApplicationMigration/delete_response.delete
+    events:
+      - http:
+          path: ApplicationMigration/{app_name}
+          method: delete
+          cors: true
+  insert:
+    handler: ApplicationMigration/insert_response.insert
+    events:
+      - http:
+          path: ApplicationMigration
+          method: post
+          cors: true
+  evaluate:
+    handler: ApplicationMigration/evaluate_response.evaluate
+    events:
+      - http:
+          path: ApplicationMigration/{app_name}
+          method: get
+          cors: true
+
+resources:
+  Resources:
+    ApplicationMigrationDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: app_name
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: app_name
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: Application_migration_responses
