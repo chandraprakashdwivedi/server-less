@@ -4,6 +4,8 @@
 
 https://youtu.be/x1S8MLVZV44
 
+Channel https://youtu.be/lUTGk64jppM?list=PLzvRQMJ9HDiT5b4OsmIBiMbsPjfp4kfg3
+
 git repo https://github.com/serverless/serverless
 
 This repository performs automation using a new tool named serverless by defination it say code one and run on any cloud, similar as like terraform.
