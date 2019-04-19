@@ -85,7 +85,7 @@ To easily remove your Service from your AWS account, you can use the remove comm
 Pinning a Version:
 To configure version pinning define a frameworkVersion property in your serverless.yaml. Whenever you run a Serverless command from the CLI it checks if your current Serverless version is matching the frameworkVersion range
 
-#cat serverless.yml \n
+#cat serverless.yml /
 
 frameworkVersion: "=1.0.3" ...
 
