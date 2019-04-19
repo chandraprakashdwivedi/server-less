@@ -1,5 +1,9 @@
 # Serverless (https://serverless.com/)
 
+## Some quick hands on youtube videos
+
+https://youtu.be/x1S8MLVZV44
+
 git repo https://github.com/serverless/serverless
 
 This repository performs automation using a new tool named serverless by defination it say code one and run on any cloud, similar as like terraform.
@@ -13,6 +17,10 @@ Supporting Platforms:
 It is supporting all the public clouds.
 
 https://serverless.com/framework/docs/providers/
+
+Authorization Step:
+
+For authorization use the same concept of creating .aws in the root directory.
 
 ## Steps to create project
 
@@ -153,7 +161,6 @@ https://serverless.com/framework/docs/providers/aws/guide/resources/
 Events can be triggered by AWS Lambda on these services
 
 https://serverless.com/framework/docs/providers/aws/events/
-
 
 
 
