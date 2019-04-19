@@ -93,8 +93,71 @@ or
 
 frameworkVersion: ">=1.0.0 <2.0.0"
 
-AWS - Functions: \
+## AWS - Functions: \
 If you are using AWS as a provider, all functions inside the service are AWS Lambda functions.
+
+Log Group Resources: \
+By default, the framework will create LogGroups for your Lambdas. This makes it easy to clean up your log groups in the case you remove your service, and make the lambda IAM permissions much more specific and secure.
+
+Versioning Deployed Functions: \
+By default, the framework creates function versions for every deploy. This behavior is optional, and can be turned off.These versions are not cleaned up by serverless, so make sure you use a plugin or other tool to prune sufficiently old versions. The framework can't clean up versions because it doesn't have information about whether older versions are invoked or not. This feature adds to the number of total stack outputs and resources because a function version is a separate resource from the function it refers to.
+
+provider:
+  versionFunctions: false
+  
+Dead Letter Queue (DLQ): \
+When AWS lambda functions fail, they are retried. If the retries also fail, AWS has a feature to send information about the failed request to a SNS topic or SQS queue, called the Dead Letter Queue, which you can use to track and diagnose and react to lambda failures.You can setup a dead letter queue for your serverless functions with the help of a SNS topic and the onError config parameter.
+
+Note: You can only provide one onError config per function.
+
+functions:
+  hello:
+    handler: handler.hello
+    onError: arn:aws:sns:us-east-1:XXXXXX:test # Ref, Fn::GetAtt and Fn::ImportValue are supported as well
+    
+KMS Keys:
+AWS Lambda uses AWS Key Management Service (KMS) to encrypt your environment variables at rest.
+
+service:
+  name: service-name
+  awsKmsKeyArn: arn:aws:kms:us-east-1:XXXXXX:key/some-hash
+
+provider:
+  name: aws
+  environment:
+    TABLE_NAME: tableName1
+
+functions:
+  hello: # this function will OVERWRITE the service level environment config above
+    handler: handler.hello
+    awsKmsKeyArn: arn:aws:kms:us-east-1:XXXXXX:key/some-hash
+ 
+## AWS - Events
+Events are the things that trigger your functions to run like an S3 bucket upload, an SNS topic, and HTTP endpoints created via API Gateway.
+
+## AWS CloudFormation Resource Reference: \
+To have consistent naming in the CloudFormation Templates that get deployed we use a standard pattern:
+
+{Function Name}{Cloud Formation Resource Type}{Resource Name}{SequentialID, instanceId or Random String}
+
+Function Name - This is optional for Resources that should be recreated when the function name gets changed. Those resources are also called function bound
+Cloud Formation Resource Type - E.g., S3Bucket
+Resource Name - An identifier for the specific resource, e.g. for an S3 Bucket the configured bucket name.
+SequentialID, instanceId or Random String - For a few resources we need to add an optional sequential id, the Serverless instanceId (accessible via ${sls:instanceId}) or a random string to identify them.
+
+All resource names that are deployed by Serverless have to follow this naming scheme. 
+
+Number of resources deployed using serverless in AWS
+https://serverless.com/framework/docs/providers/aws/guide/resources/
+
+Events can be triggered by AWS Lambda on these services
+
+https://serverless.com/framework/docs/providers/aws/events/
+
+
+
+
+  
 
 
 
