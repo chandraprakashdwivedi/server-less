@@ -89,6 +89,9 @@ To configure version pinning define a frameworkVersion property in your serverle
 
 frameworkVersion: "=1.0.3" ...
 
+or
+
+frameworkVersion: ">=1.0.0 <2.0.0"
 
 
 
