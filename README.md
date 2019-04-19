@@ -24,12 +24,12 @@ Create a Service:
   
 #cd my-service
 
-Deploy a Service:
+Deploy a Service: \n
 Use this when you have made changes to your Functions, Events or Resources in serverless.yml or you simply want to deploy all changes within your Service at the same time.
 
 #serverless deploy --stage prod --region ap-south-1
 
-Deploy the Function:
+Deploy the Function: \n 
 Use this to quickly upload and overwrite your AWS Lambda code on AWS, allowing you to develop faster.
 
 #serverless deploy function -f hello
@@ -85,7 +85,7 @@ To easily remove your Service from your AWS account, you can use the remove comm
 Pinning a Version:
 To configure version pinning define a frameworkVersion property in your serverless.yaml. Whenever you run a Serverless command from the CLI it checks if your current Serverless version is matching the frameworkVersion range
 
-#cat serverless.yml
+#cat serverless.yml \n
 
 frameworkVersion: "=1.0.3" ...
 
