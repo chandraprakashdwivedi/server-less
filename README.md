@@ -70,18 +70,19 @@ Create this file and add event data so you can invoke your function with the dat
 
 #serverless invoke -p event.json
 
-Deployment
+Deployment:
 When you deploy a Service, all of the Functions, Events and Resources in your serverless.yml are translated to an AWS CloudFormation template and deployed as a single CloudFormation stack.
-### Note Deployment defaults to dev stage and us-east-1 region on AWS, unless you specified these elsewhere, or add them in as options:
+
+Note Deployment defaults to dev stage and us-east-1 region on AWS, unless you specified these elsewhere, or add them in as options:
 
 #serverless deploy --stage prod --region us-east-1
 
-Removal
+Removal:
 To easily remove your Service from your AWS account, you can use the remove command.
 
 #serverless remove -v
 
-Pinning a Version
+Pinning a Version:
 To configure version pinning define a frameworkVersion property in your serverless.yaml. Whenever you run a Serverless command from the CLI it checks if your current Serverless version is matching the frameworkVersion range
 
 #cat serverless.yml
