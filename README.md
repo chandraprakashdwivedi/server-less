@@ -44,12 +44,12 @@ Open up a separate tab in your console and stream all logs for a specific Functi
 
 #serverless logs -f hello -t
 
-Remove the Service: \
+Remove the Service: 
 Removes all Functions, Events and Resources from your AWS account.
 
-#serverless remove \
+#serverless remove 
 
-How to Install a Service: \ 
+How to Install a Service: <br/>
 This is a convenience method to install a pre-made Serverless Service locally by downloading the Github repo and unzipping it. Services are listed below.
 
 #serverless install -u https://github.com/your-url-to-the-serverless-service
