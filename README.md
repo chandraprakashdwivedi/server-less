@@ -106,13 +106,13 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 ## AWS - Functions: \
 If you are using AWS as a provider, all functions inside the service are AWS Lambda functions.
 
-Log Group Resources: \
+Log Group Resources: <br />
 By default, the framework will create LogGroups for your Lambdas. This makes it easy to clean up your log groups in the case you remove your service, and make the lambda IAM permissions much more specific and secure.
 
-Versioning Deployed Functions: <br\>
+Versioning Deployed Functions: <br />
 By default, the framework creates function versions for every deploy. This behavior is optional, and can be turned off.These versions are not cleaned up by serverless, so make sure you use a plugin or other tool to prune sufficiently old versions. The framework can't clean up versions because it doesn't have information about whether older versions are invoked or not. This feature adds to the number of total stack outputs and resources because a function version is a separate resource from the function it refers to.
 
-provider: <br\>
+provider: <br />
   versionFunctions: false
   
 Dead Letter Queue (DLQ): 
