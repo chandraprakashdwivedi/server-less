@@ -8,6 +8,8 @@ provider:
   #role: arn:aws:iam::12345:role/LambdaRole #For roles based login
   stage: dev
   region: ap-south-1
+  #notificationArns:
+   #   - 'arn:aws:sns:ap-south-1:XXXXXX:mytopic'
 
 # you can add packaging information here
 #package:
@@ -23,12 +25,15 @@ functions:
     handler: lambda_functions/s3bucket.hello
     memorySize: 128
     description: My function
-    #onError: arn:aws:sns:ap-south-1:XXXXXX:test
+    #onError: arn:aws:sns:ap-south-1:XXXXXX:mytopic
     events:
         - http:
             path: first-endpoint
             method: GET
             cors: true
+        - sns:
+            topicName: cp-sns
+            displayName: notification-alerts
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
