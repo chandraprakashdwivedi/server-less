@@ -81,20 +81,20 @@ resources:
                 message: 'Hello !! Hi r u? Here is a alert"
               - Protocol: lambda
                 Endpoint: { “Fn::Join” : [“”, [“arn:aws:sqs:${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, “:${self:resources.Resources.SQSQueue.Properties.QueueName}” ] ] }
-##    TestDynamoDbTable:
-##      Type: 'AWS::DynamoDB::Table'
-##      DeletionPolicy: Retain
-##      Properties:
-##        AttributeDefinitions:
-##          -
-##            AttributeName: app_name
-##            AttributeType: S
-##        KeySchema:
-##          -
-##            AttributeName: app_name
-##            KeyType: HASH
-##        ProvisionedThroughput:
-##          ReadCapacityUnits: 1
-##          WriteCapacityUnits: 1
-##        TableName: ${self:service}-${self:provider.stage}-table1
+#    TestDynamoDbTable:
+#      Type: 'AWS::DynamoDB::Table'
+#      DeletionPolicy: Retain
+#      Properties:
+#        AttributeDefinitions:
+#          -
+#            AttributeName: app_name
+#            AttributeType: S
+#        KeySchema:
+#          -
+#            AttributeName: app_name
+#            KeyType: HASH
+#        ProvisionedThroughput:
+#          ReadCapacityUnits: 1
+#          WriteCapacityUnits: 1
+#        TableName: ${self:service}-${self:provider.stage}-table1
       
