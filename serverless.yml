@@ -19,14 +19,14 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-    sbucket:
-        handler: lambda_functions/s3bucket.hello
-        #onError: arn:aws:sns:ap-south-1:XXXXXX:test
-        events:
-            -http:
-                path: lambda_functions
-                method: get
-                cors: true
+  s3bucket:
+    handler: lambda_functions/s3bucket.hello
+    #onError: arn:aws:sns:ap-south-1:XXXXXX:test
+    events:
+        -http:
+            path: lambda_functions
+            method: get
+            cors: true
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
