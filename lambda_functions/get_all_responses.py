@@ -4,7 +4,7 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 
 def list_responses(event, context):
-    table = dynamodb.Table('Application_migration_responses')
+    table = dynamodb.Table('test-sls-dev-table1')
 
     # fetch all ApplicationMigration from the database
     result = table.scan()
