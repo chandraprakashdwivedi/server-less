@@ -18,31 +18,31 @@ provider:
 
 functions:
 ##  list:
-##    handler: ApplicationMigration/get_all_responses.list_responses
+##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
 ##      - http:
-##          path: ApplicationMigration
+##          path: lambda_functions
 ##          method: get
 ##          cors: true
 ##  delete:
-##    handler: ApplicationMigration/delete_response.delete
+##    handler: lambda_functions/delete_response.delete
 ##    events:
 ##      - http:
-##          path: ApplicationMigration/{app_name}
+##          path: lambda_functions/{app_name}
 ##          method: delete
 ##          cors: true
 ##  insert:
-##    handler: ApplicationMigration/insert_response.insert
+##    handler: lambda_functions/insert_response.insert
 ##    events:
 ##      - http:
-##          path: ApplicationMigration
+##          path: lambda_functions
 ##          method: post
 ##          cors: true
 ##  evaluate:
-##    handler: ApplicationMigration/evaluate_response.evaluate
+##    handler: lambda_functions/evaluate_response.evaluate
 ##    events:
 ##      - http:
-##          path: ApplicationMigration/{app_name}
+##          path: lambda_functions/{app_name}
 ##          method: get
 ##          cors: true
 
