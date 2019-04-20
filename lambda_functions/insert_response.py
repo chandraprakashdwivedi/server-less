@@ -4,7 +4,7 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 
 def insert(event, context):
-    table = dynamodb.Table('Application_migration_responses')
+    table = dynamodb.Table('test-sls-dev-table1')
     if 'body' in event and event['body'] is not None:
         body = json.loads(event['body'])
     item = {
