@@ -1,4 +1,4 @@
-def Deploy() {
+def Delete() {
 sh '''#!/bin/bash -xe
  sls remove -v
 '''
