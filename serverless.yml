@@ -31,9 +31,6 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
-        - sns:
-            topicName: aggregate
-            displayName: Data aggregation pipeline
 
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
