@@ -21,6 +21,8 @@ provider:
 functions:
   s3bucket:
     handler: lambda_functions/s3bucket.hello
+    memorySize: 128
+    description: My function
     #onError: arn:aws:sns:ap-south-1:XXXXXX:test
     events:
         - http:
