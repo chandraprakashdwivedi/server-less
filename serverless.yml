@@ -24,7 +24,7 @@ functions:
     #onError: arn:aws:sns:ap-south-1:XXXXXX:test
     events:
         -http:
-            path: lambda_functions
+            path: lambda-functions
             method: get
             cors: true
 ##  list:
