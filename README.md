@@ -109,13 +109,13 @@ If you are using AWS as a provider, all functions inside the service are AWS Lam
 Log Group Resources: \
 By default, the framework will create LogGroups for your Lambdas. This makes it easy to clean up your log groups in the case you remove your service, and make the lambda IAM permissions much more specific and secure.
 
-Versioning Deployed Functions: \
+Versioning Deployed Functions: <br\>
 By default, the framework creates function versions for every deploy. This behavior is optional, and can be turned off.These versions are not cleaned up by serverless, so make sure you use a plugin or other tool to prune sufficiently old versions. The framework can't clean up versions because it doesn't have information about whether older versions are invoked or not. This feature adds to the number of total stack outputs and resources because a function version is a separate resource from the function it refers to.
 
-provider:
+provider: <br\>
   versionFunctions: false
   
-Dead Letter Queue (DLQ): \
+Dead Letter Queue (DLQ): 
 When AWS lambda functions fail, they are retried. If the retries also fail, AWS has a feature to send information about the failed request to a SNS topic or SQS queue, called the Dead Letter Queue, which you can use to track and diagnose and react to lambda failures.You can setup a dead letter queue for your serverless functions with the help of a SNS topic and the onError config parameter.
 
 Note: You can only provide one onError config per function.
@@ -163,6 +163,10 @@ https://serverless.com/framework/docs/providers/aws/guide/resources/
 Events can be triggered by AWS Lambda on these services
 
 https://serverless.com/framework/docs/providers/aws/events/
+
+## AWS Resource Template url reference
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 
 
 
