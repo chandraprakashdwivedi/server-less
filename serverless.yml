@@ -78,9 +78,10 @@ resources:
               - Protocol: sms
                 receiver: +918006363103
                 sender: cp-sns
-                message: 'Hello !! Hi r u? Here is a alert"
+                message: 'Hello !! Hi r u? Here is a alert'
               - Protocol: lambda
                 Endpoint: { “Fn::Join” : [“”, [“arn:aws:sqs:${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, “:${self:resources.Resources.SQSQueue.Properties.QueueName}” ] ] }
+
 #    TestDynamoDbTable:
 #      Type: 'AWS::DynamoDB::Table'
 #      DeletionPolicy: Retain
