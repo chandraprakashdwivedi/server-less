@@ -69,6 +69,18 @@ resources:
           Type: AWS::S3::Bucket
           Properties:
               BucketName: ${self:service}-${self:provider.stage}-uploads
+      SNSTopic:
+          Type: AWS::SNS::Topic
+          Properties:
+            DisplayName: SNSTopic
+            TopicName: ${self:service}-${self:provider.stage}-topic
+            Subscription:
+              - Protocol: sms
+                receiver: +918006363103
+                sender: cp-sns
+                message: 'Hello !! Hi r u? Here is a alert"
+              - Protocol: lambda
+                Endpoint: { “Fn::Join” : [“”, [“arn:aws:sqs:${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, “:${self:resources.Resources.SQSQueue.Properties.QueueName}” ] ] }
 ##    TestDynamoDbTable:
 ##      Type: 'AWS::DynamoDB::Table'
 ##      DeletionPolicy: Retain
