@@ -76,7 +76,7 @@ resources:
             TopicName: ${self:service}-${self:provider.stage}-topic
             Subscription:
                 - Protocol: SQS
-                  Endpoint: { “Fn::Join” : [“”, [“arn:aws:sqs:",${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, “:${self:resources.Resources.SQSQueue.Properties.QueueName}” ] ] 
+                  Endpoint: { “Fn::Join” : [“”, [“arn:aws:sqs:${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, “:${self:resources.Resources.SQSQueue.Properties.QueueName}” ] ] }
              # - Protocol: lambda
               #  Endpoint: { “Fn::Join” : [“”, [“arn:aws:lambda:${self:provider.region}:“, { “Ref” : “AWS::AccountId” }, :functions, ${self:service}-${self:provider.stage}-${self:functions.usersCreate} ] ] }
                 
