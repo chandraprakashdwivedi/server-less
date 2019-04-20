@@ -3,7 +3,7 @@ dynamodb = boto3.resource('dynamodb')
 
 
 def delete(event, context):
-    table = dynamodb.Table('Application_migration_responses')
+    table = dynamodb.Table('test-sls-dev-table1')
 
     table.delete_item(
         Key={
