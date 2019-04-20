@@ -25,15 +25,16 @@ functions:
     handler: lambda_functions/s3bucket.hello
     memorySize: 128
     description: My function
-    #onError: arn:aws:sns:ap-south-1:XXXXXX:mytopic
+    #onError: { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:resources.Resources.SNSTopic.Properties.TopicName}" ] ]  }
     events:
         - http:
             path: first-endpoint
             method: GET
             cors: true
         - sns:
-            topicName:  ${self:service}-${self:provider.stage}-topic
-            displayName: SNSTopic
+            topicName: aggregate
+            displayName: Data aggregation pipeline
+
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
