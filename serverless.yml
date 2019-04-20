@@ -31,9 +31,9 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
-        - sns:
-            topicName: cp-sns
-            displayName: notification-alerts
+       # - sns:
+        #    topicName: ${self:service}-${self:provider.stage}-topic
+         #   displayName: SNSTopic
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
