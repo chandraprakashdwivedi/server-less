@@ -23,9 +23,9 @@ functions:
     handler: lambda_functions/s3bucket.hello
     #onError: arn:aws:sns:ap-south-1:XXXXXX:test
     events:
-        -http:
-            path: lambda-functions
-            method: get
+        - http:
+            path: first-endpoint
+            method: GET
             cors: true
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
