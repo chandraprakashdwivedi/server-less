@@ -19,7 +19,7 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-    s3bucket:
+    sbucket:
         handler: lambda_functions/s3bucket.hello
         #onError: arn:aws:sns:ap-south-1:XXXXXX:test
         events:
