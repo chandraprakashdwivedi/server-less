@@ -1,8 +1,10 @@
 service: test-sls # NOTE: update this with your service name
+#awsKmsKeyArn: arn:aws:kms:us-east-1:XXXXXX:key/some-hash
 
 provider:
   name: aws
   runtime: python3.6
+  versionFunctions: false
   #role: arn:aws:iam::12345:role/LambdaRole #For roles based login
   stage: dev
   region: ap-south-1
@@ -19,10 +21,12 @@ provider:
 functions:
     s3bucket:
         handler: lambda_functions/s3bucket.hello
+        #onError: arn:aws:sns:ap-south-1:XXXXXX:test
         events:
             -http:
                 path: lambda_functions
                 method: get
+                cors: true
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
