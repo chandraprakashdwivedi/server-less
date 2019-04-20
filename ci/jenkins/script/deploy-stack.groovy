@@ -1,5 +1,5 @@
 def Deploy() {
 sh '''#!/bin/bash -xe
- serverless deploy
+ sls deploy -v
 }
 return this;
