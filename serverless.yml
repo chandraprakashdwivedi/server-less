@@ -17,6 +17,12 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
+    s3bucket:
+        handler: lambda_functions/s3bucket.hello
+        events:
+            -http:
+                path: lambda_functions
+                method: get
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
 ##    events:
