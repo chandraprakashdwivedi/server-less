@@ -5,7 +5,7 @@ dynamodb = boto3.resource('dynamodb')
 
 
 def evaluate_response(event, context):
-    table = dynamodb.Table('Application_migration_responses')
+    table = dynamodb.Table('test-sls-dev-table1')
 
     # fetch all ApplicationMigration from the database
     key = {'app_name': event.path_params['app_name']}
@@ -46,9 +46,7 @@ def evaluate_response(event, context):
         on-premise resources could experience delays in the cloud.")
     if form_response['database'] == 'Oracle':
         warning.append('Currently, Oracle is supported but could incur higher costs.')
-    if form_response['database'] == "DB2":
-        error.append("DB2 is not currently supported in the cloud")
-
+ 
     # create a response
     response = {
         "statusCode": 200,
