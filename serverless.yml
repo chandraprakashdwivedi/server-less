@@ -38,8 +38,8 @@ provider:
 #    - exclude-me-dir/**
 
   environment:
-    BUCKET: test-sls-dev-uploads
-    TOPIC: 
+    BUCKET: "test-sls-dev-uploads"
+    #TOPIC: 
 
 
 functions:
@@ -54,6 +54,11 @@ functions:
             method: GET
             cors: true
         - s3: ${env:BUCKET}
+            #bucket: photos
+            #event: s3:ObjectCreated:*
+            #rules:
+             #- prefix: uploads/
+             #- suffix: .jpg
         #- sns: ${env:TOPIC}
  
 
