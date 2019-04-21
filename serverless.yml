@@ -22,7 +22,7 @@ provider:
 
 functions:
   s3bucket:
-    handler: lambda_functions/s3bucket.hello
+    handler: lambda_functions/s3bucket.s3list
     memorySize: 128
     description: My function
     #onError: { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:resources.Resources.SNSTopic.Properties.TopicName}" ] ]  }
