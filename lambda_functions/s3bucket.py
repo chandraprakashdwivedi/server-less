@@ -1,12 +1,14 @@
 import json
 import boto3
 
-def s3list(event,context):
-    bucket = conn.get_bucket('test-sls-dev-uploads', validate=False)
-    print(bucket)
-    for key in bucket.list(prefix='test-sls-dev-uploads'):
-        print("Bucket List: %s" % key)
+s3 = boto3.resource('s3')
 
+def s3list(event,context):
+    my_bucket = s3.Bucket('test-sls-dev-uploads')
+    
+    for object in my_bucket.objects.all():
+        print(object)
+    
     response = {
         "statusCode": 200
     }
