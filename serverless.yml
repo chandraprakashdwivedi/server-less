@@ -16,16 +16,18 @@ provider:
     - Effect: "Allow"
       Action:
         - "s3:ListBucket"
-      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-    - Effect: "Allow"
-      Action:
-        - "s3:PutObject"
-      Resource:
-        Fn::Join:
-          - ""
-          - - "arn:aws:s3:::"
-            - "Ref" : "ServerlessDeploymentBucket"
-            - "/*"
+      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+      Resource: arn:aws:s3:::test-sls-dev-upload
+    #- Effect: "Allow"
+     # Action:
+      #  - "s3:PutObject"
+      #Resource:
+       # Fn::Join:
+        #  - ""
+         # - - "arn:aws:s3:::"
+          #  - "Ref" : "ServerlessDeploymentBucket"
+           # - "/*"
 
 
 # you can add packaging information here
