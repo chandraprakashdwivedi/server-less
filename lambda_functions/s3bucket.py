@@ -1,24 +1,18 @@
 import json
+import boto3
+
+s3 = boto3.client('s3')
 
 
-def hello(event, context):
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        
-    }
+def s3list(event,context):
+   data = s3.list_buckets()
+   buckets = [bucket['Name'] for bucket in data['Buckets']]
+   print("Bucket List: %s" % buckets)
 
     response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
+        "statusCode": 200
     }
 
     return response
-
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """
+    
+    
