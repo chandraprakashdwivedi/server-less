@@ -38,7 +38,7 @@ provider:
 #    - exclude-me-dir/**
 
   environment:
-    BUCKET: "test-sls-dev-uploads"
+    BUCKET: ${self:service}-${self:provider.stage}-uploads
     #TOPIC: 
 
 
