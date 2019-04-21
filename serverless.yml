@@ -10,6 +10,23 @@ provider:
   region: ap-south-1
   #notificationArns:
    #   - 'arn:aws:sns:ap-south-1:XXXXXX:mytopic'
+  
+# you can add statements to the Lambda function's IAM Role here
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:ListBucket"
+      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
 
 # you can add packaging information here
 #package:
@@ -32,6 +49,7 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
+         
 
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
