@@ -25,7 +25,8 @@ functions:
     handler: lambda_functions/s3bucket.s3list
     memorySize: 128
     description: My function
-    onError: {"Fn::Sub" :"arn:aws:sns:${self:provider.region}:015878554706:${self:service}-${self:provider.stage}-topic" }
+    #onError: {"Fn::Sub" :"arn:aws:sns:${self:provider.region}:{ "Ref" : "AWS::AccountId" }:${self:service}-${self:provider.stage}-topic" }
+    onError: arn:aws:sns:ap-south-1:015878554706:test-sls-dev-topic
     events:
         - http:
             path: first-endpoint
