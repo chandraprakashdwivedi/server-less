@@ -53,8 +53,8 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
-        - s3: ${env:BUCKET}
-            #bucket: photos
+        - s3: 
+            bucket: test-sls-dev-uploads
             #event: s3:ObjectCreated:*
             #rules:
              #- prefix: uploads/
