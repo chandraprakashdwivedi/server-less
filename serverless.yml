@@ -43,7 +43,6 @@ functions:
     memorySize: 128
     description: My function
     #onError: {"Fn::Sub" :"arn:aws:sns:${self:provider.region}:{ "Ref" : "AWS::AccountId" }:${self:service}-${self:provider.stage}-topic" }
-    onError: arn:aws:sns:ap-south-1:015878554706:test-sls-dev-topic
     events:
         - http:
             path: first-endpoint
