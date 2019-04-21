@@ -37,6 +37,11 @@ provider:
 #    - exclude-me.py
 #    - exclude-me-dir/**
 
+  environment:
+    BUCKET: test-sls-dev-uploads
+    TOPIC: 
+
+
 functions:
   s3bucket:
     handler: lambda_functions/s3bucket.s3list
@@ -48,7 +53,9 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
-         
+        - s3: ${env:BUCKET}
+        #- sns: ${env:TOPIC}
+ 
 
 ##  list:
 ##    handler: lambda_functions/get_all_responses.list_responses
