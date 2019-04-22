@@ -122,7 +122,7 @@ resources:
               Principal: sns.amazonaws.com
               SourceArn:
                   Ref: ${self:service}-${self:provider.stage}-topic
-              FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
+              FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
 
                 
 #    TestDynamoDbTable:
