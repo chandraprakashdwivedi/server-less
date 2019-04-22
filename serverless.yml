@@ -18,7 +18,7 @@ provider:
         - "s3:*"
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-      Resource: arn:aws:s3::test-sls-dev-upload
+      Resource: arn:aws:s3:::test-sls-dev-uploads
     #- Effect: "Allow"
      # Action:
       #  - "s3:PutObject"
@@ -55,6 +55,7 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
+            authorizer: aws_iam 
         #- s3: 
             #bucket: test-sls-dev-uploads  #Here it will create a new bucket
             #event: s3:ObjectCreated:*
