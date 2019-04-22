@@ -121,7 +121,7 @@ resources:
               Action: lambda:InvokeFunction
               Principal: sns.amazonaws.com
               SourceArn:
-                  Ref: ${self:service}-${self:provider.stage}-topic
+                  Ref: SNSTopic
               FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
 
                 
