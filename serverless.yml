@@ -121,7 +121,7 @@ resources:
               Action: lambda:InvokeFunction
               Principal: sns.amazonaws.com
               SourceArn:
-                  Ref: test-sls-dev-topic
+                  Ref: test-sls-dev-topic2
               FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
 
                 
