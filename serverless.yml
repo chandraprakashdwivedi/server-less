@@ -22,7 +22,7 @@ provider:
     - Effect: "Allow"
       Action:
         - "sns:publish"
-      Resource: *
+      Resource: "*"
        # Fn::Join:
         #  - ""
          # - - "arn:aws:s3:::"
@@ -31,7 +31,7 @@ provider:
     - Effect: "Allow"
       Action:
         - "sqs:*"
-      Resource: *
+      Resource: "*"
 
 
 # you can add packaging information here
