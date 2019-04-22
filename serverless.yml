@@ -115,6 +115,14 @@ resources:
               Endpoint: chandra.prakash363@gmail.com
               Protocol: email
               TopicArn: { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:resources.Resources.SNSTopic.Properties.TopicName}" ] ]  }
+      SNSTopic:
+          Type: AWS::Lambda::permission
+          Properties:
+             Action: lambda:InvokeFunction
+             Principal: sns.amazonaws.com
+             SourceArn:
+               Ref: ${self:service}-${self:provider.stage}-topic
+             FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
 
                 
 #    TestDynamoDbTable:
