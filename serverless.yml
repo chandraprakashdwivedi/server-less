@@ -118,12 +118,12 @@ resources:
       SNSTopic:
           Type: AWS::Lambda::permission
           Properties:
-             Action: lambda:InvokeFunction
-             Principal: sns.amazonaws.com
-             SourceArn:
-               #Ref: ${self:service}-${self:provider.stage}-topic2
+              Action: lambda:InvokeFunction
+              Principal: sns.amazonaws.com
+              SourceArn:
+                #Ref: ${self:service}-${self:provider.stage}-topic2
                  Ref: test-sls-dev-topic
-             FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
+              FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
 
                 
 #    TestDynamoDbTable:
