@@ -55,7 +55,7 @@ functions:
             path: first-endpoint
             method: GET
             cors: true
-            authorizer: aws_iam 
+            authorizer: aws_iam
         #- s3: 
             #bucket: test-sls-dev-uploads  #Here it will create a new bucket
             #event: s3:ObjectCreated:*
