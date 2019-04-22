@@ -22,13 +22,16 @@ provider:
     - Effect: "Allow"
       Action:
         - "sns:publish"
-          "sqs:*"
       Resource: *
        # Fn::Join:
         #  - ""
          # - - "arn:aws:s3:::"
           #  - "Ref" : "ServerlessDeploymentBucket"
            # - "/*"
+    - Effect: "Allow"
+      Action:
+        - "sqs:*"
+      Resource: *
 
 
 # you can add packaging information here
