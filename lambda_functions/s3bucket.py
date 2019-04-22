@@ -16,6 +16,7 @@ def s3list(event,context):
     response = sns.publish(
      TopicArn='arn:aws:sns:ap-south-1:015878554706:test-sls-dev-topic',
      Message=json.dumps({'default': json.dumps(bucket_obj)}),
+     Subject='your s3 bucket items',
      MessageStructure='json'
     )
     
