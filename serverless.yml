@@ -19,10 +19,11 @@ provider:
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
       Resource: arn:aws:s3:::test-sls-dev-uploads
-    #- Effect: "Allow"
-     # Action:
-      #  - "s3:PutObject"
-      #Resource:
+    - Effect: "Allow"
+      Action:
+        - "sns:publish"
+          "sqs:*"
+      Resource: *
        # Fn::Join:
         #  - ""
          # - - "arn:aws:s3:::"
