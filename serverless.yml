@@ -15,10 +15,10 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
-        - "s3:ListBucket"
+        - "s3:*"
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
       #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-      Resource: arn:aws:s3:::test-sls-dev-upload
+      Resource: arn:aws:s3::test-sls-dev-upload
     #- Effect: "Allow"
      # Action:
       #  - "s3:PutObject"
