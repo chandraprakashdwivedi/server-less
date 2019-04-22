@@ -119,14 +119,16 @@ resources:
               Endpoint: chandra.prakash363@gmail.com
               Protocol: email
               TopicArn: { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:resources.Resources.SNSTopic.Properties.TopicName}" ] ]  }
-      lambdaInv:
-          Type: AWS::Lambda::Permission
-          Properties:
-              Action: lambda:InvokeFunction
-              Principal: sns.amazonaws.com
-              SourceArn:
-                  Ref: SNSTopic
-              FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
+
+#Used to generated trigger which is not neccesary
+##      lambdaInv:
+##          Type: AWS::Lambda::Permission
+##          Properties:
+##              Action: lambda:InvokeFunction
+##              Principal: sns.amazonaws.com
+##              SourceArn:
+##                  Ref: SNSTopic
+##              FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
 
                 
 #    TestDynamoDbTable:
