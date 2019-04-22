@@ -122,7 +122,7 @@ resources:
              Principal: sns.amazonaws.com
              SourceArn:
                #Ref: ${self:service}-${self:provider.stage}-topic2
-               Ref: test-sls-dev-topic
+                 Ref: test-sls-dev-topic
              FunctionName: {"Fn::GetAtt": [ "test-sls-dev-s3bucket", "Arn" ]} 
 
                 
