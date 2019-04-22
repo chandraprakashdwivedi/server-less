@@ -12,10 +12,12 @@ def s3list(event,context):
         print(object, object.bucket_name)
         bucket_obj.append(object.key)
         
-   
     sns = boto3.client('sns')
-    response = sns.publish(TopicArn='arn:aws:sns:ap-south-1:015878554706:test-sls-dev-topic',Message='This is test message from lambda')
-    print(response)
+    response = sns.publish(
+     TopicArn='arn:aws:sns:ap-south-1:015878554706:test-sls-dev-topic',
+     Message=json.dumps({'default': json.dumps(bucket_obj)}),
+     MessageStructure='json'
+    )
     
     response = {
         "statusCode": 200,
