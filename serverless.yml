@@ -16,14 +16,13 @@ provider:
     - Effect: "Allow"
       Action:
         - "s3:*"
-      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "uploadBucket" } ] ]  }
       Resource: arn:aws:s3:::test-sls-dev-uploads
     - Effect: "Allow"
       Action:
         - "sns:publish"
       Resource: "*"
-       # Fn::Join:
+       # Fn::Join:    #To add multiple resources
         #  - ""
          # - - "arn:aws:s3:::"
           #  - "Ref" : "ServerlessDeploymentBucket"
@@ -60,44 +59,7 @@ functions:
             method: GET
             cors: true
             authorizer: aws_iam
-        #- s3: 
-            #bucket: test-sls-dev-uploads  #Here it will create a new bucket
-            #event: s3:ObjectCreated:*
-            #rules:
-             #- prefix: uploads/
-             #- suffix: .jpg
-        #- sns: ${env:TOPIC}
- 
-
-##  list:
-##    handler: lambda_functions/get_all_responses.list_responses
-##    events:
-##      - http:
-##          path: lambda_functions
-##          method: get
-##          cors: true
-##  delete:
-##    handler: lambda_functions/delete_response.delete
-##    events:
-##      - http:
-##          path: lambda_functions/{app_name}
-##          method: delete
-##          cors: true
-##  insert:
-##    handler: lambda_functions/insert_response.insert
-##    events:
-##      - http:
-##          path: lambda_functions
-##          method: post
-##          cors: true
-##  evaluate:
-##    handler: lambda_functions/evaluate_response.evaluate
-##    events:
-##      - http:
-##          path: lambda_functions/{app_name}
-##          method: get
-##          cors: true
-
+  
 resources:
   Resources:
       uploadBucket:
@@ -129,6 +91,7 @@ resources:
 ##              SourceArn:
 ##                  Ref: SNSTopic
 ##              FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
+                FunctionName: { "Fn::Join" : ["", ["arn:aws:lambda:${self:provider.region}:", { "Ref" : "AWS::AccountId" },: fucntion ":${self:resources.Resources.
 
                 
 #    TestDynamoDbTable:
