@@ -16,8 +16,8 @@ provider:
     - Effect: "Allow"
       Action:
         - "s3:*"
-      #Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "uploadBucket" } ] ]  }
-      Resource: arn:aws:s3:::test-sls-dev-uploads
+      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "uploadBucket" } ] ]  }
+      #Resource: arn:aws:s3:::test-sls-dev-uploads
     - Effect: "Allow"
       Action:
         - "sns:publish"
@@ -90,8 +90,7 @@ resources:
 ##              Principal: sns.amazonaws.com
 ##              SourceArn:
 ##                  Ref: SNSTopic
-##              FunctionName: arn:aws:lambda:ap-south-1:015878554706:function:test-sls-dev-s3bucket 
-                FunctionName: { "Fn::Join" : ["", ["arn:aws:lambda:${self:provider.region}:", { "Ref" : "AWS::AccountId" },: fucntion ":${self:resources.Resources.
+##              FunctionName: { "Fn::Join" : ["", ["arn:aws:lambda:${self:provider.region}:", { "Ref" : "AWS::AccountId" },: fucntion ":${self:service}-${self:provider.stage}-s3bucket}"]]}
 
                 
 #    TestDynamoDbTable:
