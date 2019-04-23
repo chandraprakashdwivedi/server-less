@@ -17,7 +17,6 @@ provider:
       Action:
         - "s3:*"
       Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "uploadBucket" } ] ]  }
-      #Resource: arn:aws:s3:::test-sls-dev-uploads
     - Effect: "Allow"
       Action:
         - "sns:publish"
