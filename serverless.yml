@@ -33,6 +33,12 @@ provider:
 
   resourcePolicy:
     - Effect: Allow
+      Principal:
+            AWS: "arn:aws:iam::015878554706:user/jenkins_user"
+      Action: execute-api:Invoke
+      Resource:
+        - execute-api:/*/*/*
+    - Effect: Allow
       Principal: "*"
       Action: execute-api:Invoke
       Resource:
