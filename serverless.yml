@@ -35,8 +35,8 @@ provider:
     - Effect: Allow
       Principal:
             AWS:
-              - "arn:aws:iam::015878554706:user/jenkins_user"
-              - "arn:aws:iam::015878554706:root"
+              - {"Fn::Join" :["", ["arn:aws:iam::{"Ref" : "AWS::AccountId"}:user/jenkins_user]}
+              - {"Fn::Join" :["", ["arn:aws:iam::{"Ref" : "AWS::AccountId"}:root]}
       Action: execute-api:Invoke
       Resource:
         - execute-api:/*/*/*
