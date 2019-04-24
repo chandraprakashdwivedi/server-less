@@ -34,7 +34,9 @@ provider:
   resourcePolicy:
     - Effect: Allow
       Principal:
-            AWS: "arn:aws:iam::015878554706:user/jenkins_user"
+            AWS:
+              - "arn:aws:iam::015878554706:user/jenkins_user"
+              - "arn:aws:iam::015878554706:root"
       Action: execute-api:Invoke
       Resource:
         - execute-api:/*/*/*
