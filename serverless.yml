@@ -86,7 +86,7 @@ functions:
             path: lambda_functions/get-data
             method: GET
             cors: true
-            authorizer: aws_iam
+            authorizer: open
   
 resources:
   Resources:
