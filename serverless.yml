@@ -76,6 +76,17 @@ functions:
             method: GET
             cors: true
             authorizer: aws_iam
+  weblink1:
+    handler: lambda_functions/get-data.lambda_handler
+    memorySize: 128
+    description: My function
+    #onError: {"Fn::Sub" :"arn:aws:sns:${self:provider.region}:{ "Ref" : "AWS::AccountId" }:${self:service}-${self:provider.stage}-topic" }
+    events:
+        - http:
+            path: lambda_functions/get-data
+            method: GET
+            cors: true
+            authorizer: aws_iam
   
 resources:
   Resources:
@@ -83,6 +94,9 @@ resources:
           Type: AWS::S3::Bucket
           Properties:
               BucketName: ${self:service}-${self:provider.stage}-uploads
+              WebsiteConfiguration:
+                IndexDocument: index.html
+                ErrorDocument: error.html
       SQSQueue:
           Type: AWS::SQS::Queue
           Properties:
